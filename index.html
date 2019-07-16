@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    /* 1.顶部元素10px内补丁 */
+    body{
+      padding-top:10px;
+    }
+    .all_bg{
+      width: 800px;
+      height: 600px;
+      margin:0 auto;
+    }
+    /* 定位子绝父相 */
+    #allcanvas{
+      position:relative;
+      width: 800px;
+      height: 600px;
+      margin:0;
+    }
+    #canvas1{
+      position:absolute;
+      width: 800px;
+      height: 600px;
+      bottom:0;
+      left:0;
+      z-index:1;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="all_bg">
+      <div id="allcanvas">
+        <canvas id="canvas1" width="800" height="600" style="border:1px solid blue">前面画布</canvas>
+        <canvas id="canvas2" width="800" height="600" style="border:1px solid red">后面画布</canvas>
+      </div>
+    </div>
+    <script src="js/background.js"></script>
+    <!-- <script src="js/ane.js"></script> -->
+    <script src="js/ane2.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/fruit.js"></script>
+    <script src="js/mom.js"></script>
+  </body>
+</html>
