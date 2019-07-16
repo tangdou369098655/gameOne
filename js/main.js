@@ -31,7 +31,7 @@ function init(){
   console.log(canWidth+":"+canHeight);
   // 3.3初始化图片
   bgPic=new Image();
-  bgPic.src="../game/src/background.jpg";
+  bgPic.src="../src/background.jpg";
   // 3.4创建海葵对象调用初始化方法
   ane=new aneObj();
   ane.init();
@@ -41,11 +41,15 @@ function init(){
   //3.6创建大鱼对象调用初始化方法
   mom=new momObj();
   mom.init();
+  // 3.7创建一个鼠标移动的监听绑定在画布1上
+  can1.addEventListener("mousemove",canHandler);
 }
 // 4.创建函数gameloop
 function gameloop(){
   // 4.1创建定时器调用gameloop
   requestAnimationFrame(gameloop);
+  //4.3清除画布一，大鱼身体避免重复画
+  ctx1.clearRect(0,0,canWidth,canHeight)
   // 4.4调用监听食物数量的函数
   fruitMonitor();
   // 4.5调用绘制背景函数
@@ -56,7 +60,22 @@ function gameloop(){
   fruit.draw();
   //4.8调用绘制大鱼函数
   mom.draw();
+  //4.9调用大鱼吃食物函数
+  momFruitsCollsion()
 }
 // 5.将文件main.js添加index.html
 document.body.onload=game;
 // 6.页面加载完成后调用game
+// 6.1创建两个全局变量保存鼠标位置
+var mx=0;
+var my=0;
+// 7.鼠标移动画布的事件处理函数
+function canHandler(e){
+  // 7.1获取鼠标x位置
+  var x=e.offsetX;
+  // 7.2获取鼠标y位置
+  var y=e.offsetY;
+  // 7.3将鼠标x与y位置赋值
+  mx=x;
+  my=y;
+}

@@ -27,8 +27,8 @@ fruitObj.prototype.num=30;
 // 3.为构造函数添加函数init 初始化
 fruitObj.prototype.init=function(){
   // 3.1下载食物图片
-  this.orange.src="../game/src/fruit.png";
-  this.blue.src="../game/src/blue.png";
+  this.orange.src="../src/fruit.png";
+  this.blue.src="../src/blue.png";
   //3.2创建循环遍历每个食物
   for(var i=0 ;i<this.num;i++){
   // 3.3赋值位置，状态，食物下标，宽度，类型，速度
