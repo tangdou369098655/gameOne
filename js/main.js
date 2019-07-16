@@ -13,6 +13,10 @@ var bgPic; //背景图片
 var ane;
 //1.2创建全局变量保存食物
 var fruit;
+// 1.3保存大鱼
+var mom;
+// 1.4保存分数
+var data;
 // 2.创建函数game
 function game(){
   init();
@@ -43,6 +47,8 @@ function init(){
   mom.init();
   // 3.7创建一个鼠标移动的监听绑定在画布1上
   can1.addEventListener("mousemove",canHandler);
+  //3.8创建分数对象
+  data=new dataObj();
 }
 // 4.创建函数gameloop
 function gameloop(){
@@ -62,6 +68,8 @@ function gameloop(){
   mom.draw();
   //4.9调用大鱼吃食物函数
   momFruitsCollsion()
+  // 4.10调用绘制分数函数
+  data.draw();
 }
 // 5.将文件main.js添加index.html
 document.body.onload=game;
