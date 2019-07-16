@@ -12,6 +12,14 @@ function momFruitsCollsion() {
       if(len<900){
       // 1.5食物消失
       fruit.alive[i]=false;
+      // 1.6计算分数
+      // 1.7判断食物类型
+      // 1.8判断食物类型
+      if(fruit.fruitType[i]!="blue"){
+        data.score+=200
+      }else{
+        data.score+=100
+      }
       }
     }
   }
